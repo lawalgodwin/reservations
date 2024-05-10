@@ -7,6 +7,8 @@ services:
       dockerfile: apps/bookings/Dockerfile
       target: development
     container_name: bookings
+    env_file:
+      - apps/bookings/.env
     command: pnpm run start:dev bookings
     ports:
       - "3000:3000"
@@ -20,6 +22,8 @@ services:
       dockerfile: apps/auth/Dockerfile
       target: development
     container_name: auth
+    env_file:
+      - apps/auth/.env
     command: pnpm run start:dev auth
     volumes:
       - .:/usr/src/app
@@ -27,11 +31,10 @@ services:
       - 3001:3001
     depends_on:
       - mysql
-      - bookings
   mysql:
     image: mysql
     container_name: mysql
     env_file:
-      - .env.local
+      - .env
     ports:
       - "3306:3306"
