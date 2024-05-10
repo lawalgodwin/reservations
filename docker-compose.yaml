@@ -7,13 +7,27 @@ services:
       dockerfile: apps/bookings/Dockerfile
       target: development
     container_name: bookings
-    command: pnpm run start:dev
+    command: pnpm run start:dev bookings
     ports:
       - "3000:3000"
     volumes:
       - .:/usr/src/app
     depends_on:
       - mysql
+  auth:
+    build: 
+      context: .
+      dockerfile: apps/auth/Dockerfile
+      target: development
+    container_name: auth
+    command: pnpm run start:dev auth
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 3001:3001
+    depends_on:
+      - mysql
+      - bookings
   mysql:
     image: mysql
     container_name: mysql

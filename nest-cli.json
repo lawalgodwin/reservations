@@ -17,7 +17,6 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-  
     "bookings": {
       "type": "application",
       "root": "apps/bookings",
@@ -25,6 +24,15 @@
       "sourceRoot": "apps/bookings/src",
       "compilerOptions": {
         "tsConfigPath": "apps/bookings/tsconfig.app.json"
+      }
+    },
+    "auth": {
+      "type": "application",
+      "root": "apps/auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth/tsconfig.app.json"
       }
     }
   },
