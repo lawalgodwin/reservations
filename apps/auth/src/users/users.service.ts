@@ -11,4 +11,7 @@ export class UsersService {
     const newUser = new User({ ...createUserDto });
     return this.usersRepositiry.create(newUser);
   }
+  async findOne(email: string) {
+    return this.usersRepositiry.findOne({ email });
+  }
 }
