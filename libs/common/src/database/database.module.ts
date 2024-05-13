@@ -19,8 +19,6 @@ import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-clas
       inject: [ConfigService],
     }),
   ],
-  providers: [ConfigService],
-  exports: [],
 })
 export class DatabaseModule {
   static forFeature(entities: EntityClassOrSchema[]) {

@@ -8,11 +8,11 @@ import { Booking } from './entities/booking.entity';
 export class BookingsService {
   constructor(protected bookingsRopsitory: BookingsRepository) {}
 
-  async create(createBookingDto: CreateBookingDto) {
+  async create(createBookingDto: CreateBookingDto, userId: string) {
     const booking = new Booking({
       ...createBookingDto,
       timestamp: new Date(),
-      userId: 'uhouyotjhio',
+      userId,
     });
     return this.bookingsRopsitory.create(booking);
   }
